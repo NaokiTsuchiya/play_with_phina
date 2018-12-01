@@ -1,8 +1,3 @@
-/*
- * Runstant
- * 思いたったらすぐ開発. プログラミングに革命を...
- */
-
 phina.globalize();
 
 var SCREEN_WIDTH    = 640;
@@ -33,8 +28,6 @@ phina.define("MainScene", {
       },
     });
 
-    // this.vy = 0;
-
     // デフォルトでいくつか生成
     (this.size).times(function() {
       var x = Math.randint(PIECE_SIZE, this.gridX.width - PIECE_SIZE);
@@ -49,10 +42,8 @@ phina.define("MainScene", {
     timerLabel.y = 130;
     timerLabel.fill = '#444';
     timerLabel.fontSize = 100;
-    // timerLabel.align = 'right';
     timerLabel.baseline = 'bottom';
     this.timerLabel = timerLabel;
-
     this.time = 0;
 
   },
@@ -70,7 +61,6 @@ phina.define("MainScene", {
 
     if (result) {
       this.size--;
-      console.log(this.size);
     }
 
     if (this.size === 0) {
@@ -87,12 +77,6 @@ phina.define("MainScene", {
     var word = Word(ch).addChildTo(this.wordGroup);
     word.x = x
     word.y = y;
-
-    // word.onattack = function() {
-    //   this.exit({
-    //     score: this.time,
-    //   });
-    // }.bind(this);
 
     return word;
   },
@@ -114,6 +98,7 @@ phina.define('Word', {
       width: PIECE_SIZE,
       height: PIECE_SIZE,
       text: word,
+      fill: 'black'
     });
     this.enable = true;
     this.vy = 0;
